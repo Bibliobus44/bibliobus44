@@ -67,7 +67,7 @@
       height: 70px;
       object-fit: contain;
 
-      background: var(--accent);
+      background: transparent;
 
       display: flex;
       align-items: center;

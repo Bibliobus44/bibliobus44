@@ -151,10 +151,10 @@ function afficherDerniersArticles(gridId) {
     return;
   }
 
-  grid.innerHTML = recents.map(article => {
+  grid.innerHTML = recents.map((article, i) => {
     const index = articles.indexOf(article);
     return `
-      <div class="article-card" onclick="ouvrirArticle(${index})">
+      <div class="article-card ${i < 2 ? "article-card-top" : ""}" onclick="ouvrirArticle(${index})">
         ${article.image ? `<img src="${article.image}" alt="${article.titre}" />` : ""}
         <span class="article-badge">${article.categorie}</span>
         <h3>${article.titre}</h3>

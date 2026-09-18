@@ -662,6 +662,10 @@
   position: relative;
 }
 
+.article-card-top {
+  grid-column: span 6;
+}
+
 .article-card::after {
   content: '';
   position: absolute;

@@ -138,8 +138,10 @@ function afficherDerniersArticles(gridId) {
   const grid = document.getElementById(gridId);
   if (!grid) return;
 
-  const recents = [...articles].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 10);
-
+  const recents = [...articles]
+  .sort((a, b) => b.dateTri - a.dateTri)
+  .slice(0, 8);
+  
   if (recents.length === 0) {
     grid.innerHTML = `
       <div class="placeholder">
@@ -193,6 +195,7 @@ async function chargerArticles() {
     articles = articlesData.map(a => ({
       titre: a.title || "",
       date: formaterDate(a.date),
+      dateTri: new Date(a.date),
       categorie: a.categorie || "",
       image: convertirUrlImageDrive(a.img || ""),
       contenu: convertirUrlImageDrive(a.content || "")

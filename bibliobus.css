@@ -663,7 +663,7 @@
 }
 
 .article-card-top {
-  grid-column: span 6;
+  grid-column: span 6 !important;
 }
 
 .article-card::after {

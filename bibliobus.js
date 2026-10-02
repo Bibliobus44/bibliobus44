@@ -193,12 +193,12 @@ async function chargerArticles() {
     const articlesData = await res.json();
 
     articles = articlesData.map(a => ({
-      titre: a.title || "",
-      date: formaterDate(a.date),
-      dateTri: new Date(a.date),
-      categorie: a.categorie || "",
-      image: convertirUrlImageDrive(a.img || ""),
-      contenu: convertirUrlImageDrive(a.content || "")
+     titre: a.title || "",
+     date: formaterDate(a.date),
+     dateTri: new Date(a.date).getTime(),
+     categorie: a.categorie || "",
+     image: convertirUrlImageDrive(a.img || ""),
+     contenu: convertirUrlImageDrive(a.content || "")
     }));
 
     afficherDerniersArticles("articles-grid");
@@ -559,15 +559,13 @@ function trierArticles(liste, ordre){
 
     const copie = [...liste];
 
-    copie.sort((a,b)=>{
+    copie.sort((a, b) => {
 
-        const dateA = new Date(a.date);
-        const dateB = new Date(b.date);
+        const dateA = a.dateTri || 0;
+        const dateB = b.dateTri || 0;
 
-        if(ordre==="old"){
-
+        if (ordre === "old") {
             return dateA - dateB;
-
         }
 
         return dateB - dateA;
@@ -575,7 +573,6 @@ function trierArticles(liste, ordre){
     });
 
     return copie;
-
 }
 
 document.querySelectorAll(

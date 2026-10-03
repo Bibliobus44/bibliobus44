@@ -728,8 +728,14 @@
 }
 
 @media (max-width: 860px) {
-  .article-card { grid-column: span 12; }
+
+  .article-card,
+  .article-card-top {
+    grid-column: span 12;
+  }
+
 }
+
 
 
 #page-article {

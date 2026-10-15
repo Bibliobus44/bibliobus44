@@ -953,11 +953,13 @@
 
 .bloc-2img-item {
   width: calc(50% - 0.5rem);
-  border: 1px solid var(--border);
-  padding: 4px;
-  background: var(--white);
+  border: none;
+  padding: 0;
+  background: transparent;
   object-fit: cover;
+  display: block;
 }
+
 
 
 .article-contenu > p {
